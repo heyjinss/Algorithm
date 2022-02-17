@@ -1,0 +1,72 @@
+//선형검색 
+	
+	/*검색 알고리즘 
+	 * 	주소록을 검색한다고 가정 
+	 * 
+	 *  Searching 방식 : 
+	 *  1. 국적인 한국 사람을 찾는다.
+	 *  2. 나이가 21세 이상 27세  미만인 사람을 찾는다.
+	 *  3. 찾으려는 이름과 비슷한 이름의 사람을 찾는다. 
+	 *  
+	 *  
+	 *  
+	 *  데이터의 집합이 있을 때 검색만 하면되지! 라고 생각한다면 검색에 사용할 알고리즘은 계산 시간이 짧은 것을 선택하면 되지만
+	 *  데이터가 추가/삭제 등이 자주되는 경우라면, 검색 이외의 작업에 소요되는 비용을 판단해야 한다.
+	 *  프 요소를 평가하여 알고리즘을 선택한다. 
+	 *  1. 배열 검색 ( 검색은 빠르지만, 데이터 추가시에는 시간적인 비용이 많이 든다)
+	 *  2. 선형 리스트 검색
+	 *  3. 이진트리 검색 
+	 *  
+	 *  용도와 목적, 실행속도, 자료 구조 등을 고려하여 알고리즘을 선택한다. 
+	 * 
+	 * */
+	
+	//1. 메서드 (seqSearchEx) : 배열 a의 처음부터 끝까지/ n개의 요소를 대상으로, key값을 선형검색하고, 검색한 요소의 인덱스 반환 
+	// 또한 값이 key인 요소가 여러개 존재할 경우 반환값은 검색과정에서 처음 발견한 요소의 인덱스가 된다.
+	// 값이 key인 요소가 존재하지 않으면, -1 을 반환한다. 
+	static int seqSearchEx(int [] a , int n, int key) {  // 테이블, n개 요소, 파라미터 값 
+	int i = 0; 
+	
+	while (true) {
+		if(i==n) 
+			return -1; //검색 실패(-1을 반환) 
+		
+		if (a[i] == key) 
+			return i ; //검색성공 (인덱스반환)
+		i++;
+	}
+		
+		
+		}
+	
+	public static void main(String[] args) {
+		Scanner stdIn = new Scanner(System.in);
+		
+		
+		//1. 배열 채우기 
+		System.out.println("요솟수:");
+		int num = stdIn.nextInt();
+		int[] x = new int[num];
+		
+		
+		for(int i = 0 ; i < num; i++) {
+			System.out.println("x["+i+"]:");
+			x[i] =stdIn.nextInt();
+			
+		} 
+		
+		//2. 검색값 입력 
+		System.out.println("검색할 값 :");
+		int ky = stdIn.nextInt();
+		
+		
+		//3. 검색 메서드 실행 
+		int idx = seqSearchEx(x, num, ky);
+		
+		//4. 결과 값 반환 
+		if(idx == -1)
+			System.out.println("그 값의 요소가 없습니다.");
+		else
+			System.out.println(ky+"는 x ["+idx+"] 에 있습니다. " );
+	}
+	}
